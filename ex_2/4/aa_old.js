@@ -13,11 +13,8 @@ router.get('/login',function(req, res){
 }); 
 
 router.get('/goto',function(req, res){
-    if(req.session.isAuthenticated()){
-	let url = encodeURI(req.query.url); //vulnerability
-    	res.redirect(url);
-    }else{
-	res.redirect('/');
+    let url = encodeURI(req.query.url); //vulnerability
+    res.redirect(url);
 }); 
 
 
