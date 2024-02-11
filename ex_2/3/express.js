@@ -11,7 +11,7 @@ router.get('/greeting', (req, res) => {
 router.get('/greet-template', (req,res) => {
     const name = req.query.name;
     const sanitizedName = DOMPurify.sanitize(name);
-    res.render('index', { user_name: name});
+    res.render('index', { user_name: sanitizedName});
 })
 
 module.exports = router
