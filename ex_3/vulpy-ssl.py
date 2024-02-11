@@ -10,7 +10,11 @@ from mod_mfa import mod_mfa
 import libsession
 
 app = Flask('vulpy')
-app.config['SECRET_KEY'] = 'aaaaaaa'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+if not (SECRET_KEY is None):
+    app.config['SECRET_KEY'] = SECRET_KEY
+else:
+    raise ValueError("No SECRET_KEY in this environnement")
 
 app.register_blueprint(mod_hello, url_prefix='/hello')
 app.register_blueprint(mod_user, url_prefix='/user')

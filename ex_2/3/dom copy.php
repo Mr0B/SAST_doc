@@ -8,7 +8,7 @@ require_once('../_helpers/strip.php');
   </head>
   <body>
     <p>
-      Hi, <?= htmlspecialchars($_GET['name']); ?>
+      Hi, <?= $_GET['name']; ?>
     </p>
     <script>
       window.onload = function(){
